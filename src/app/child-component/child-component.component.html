@@ -1,0 +1,93 @@
+<p>child-component works!</p>
+<!--Local Reference below-->
+Enter some Data: <input type ="text" #text12/><br/>
+Entered Value is -- {{text12.value}}
+<!--@ViewChild()-->
+
+<!--ngModel ==== LocalReference + @ViewChild()-->
+<p>
+  The divide is the third studio album by the world-renown English singer, {{musicianName1}}
+  
+  <br/>
+  Sum of {{number1}} and {{number2}} is {{sum}}
+</p>
+
+<button type ="button" (click) = "trigger()">Trigger Event</button>
+
+<hr/>
+
+<h1>Temperature Converter</h1>
+<div class="layout-column align-items-center mt-50">
+  <section class="layout-row align-items-center justify-content-between">
+    <label>Celsius: </label>
+    <input type="number" class="large" data-test-id="celsius-input" [(ngModel)]="celsius" (ngModelChange)="onDataChange($event, 'c')"/>
+  </section>
+<br/>
+  <section class="layout-row align-items-center justify-content-between">
+    <label>Fahrenheit: </label>
+    <input type="number" class="large" data-test-id="fahrenheit-input" [(ngModel)]="fahrenheit" (ngModelChange)="onDataChange($event, 'f')"/>
+  </section>
+</div>
+
+
+<hr/>
+<h2>Customer Search</h2>
+Enter the Keyword to search <input type="text" [(ngModel)]="searchText"/>
+
+<table>
+  <tr>
+    <th>Id</th>
+    <th>Name</th>
+    <th>Gender</th>
+    <th>Location</th>
+    <th>Age</th>
+  </tr>
+  <tr *ngFor="let customer of customers | filterPipe:searchText">
+    <td>{{customer.id}}</td>
+    <td>{{customer.name}}</td>
+    <td>{{customer.gender}}</td>
+    <td>{{customer.location}}</td>
+    <td>{{customer.age}}</td>     
+  </tr>
+</table>
+
+<hr/>
+<h2>Currency Converter</h2>
+<div class="layout-column align-items-center mt-50">
+  <section class="layout-row align-items-center justify-content-between">
+    <label>Dollar: </label>
+    <input type="number" class="large" [(ngModel)]="dollar" (ngModelChange)="onCurrencyChange($event, 'd')"/>
+  </section>
+<br/>
+  <section class="layout-row align-items-center justify-content-between">
+    <label>Yen: </label>
+    <input type="number" class="large" [(ngModel)]="yen" (ngModelChange)="onCurrencyChange($event, 'y')"/>
+  </section>
+</div>
+
+<br/>
+<hr/>
+<h2>Movie List Program</h2>
+Enter Movie year: <input type ="text" [(ngModel)] = "year"/><br/><br/>
+<button type="button" (click)= "getMovieListFromResult()">Get Movies List By Year</button>
+<br/><br/>
+
+<table>
+  <tr>
+    <th>Id</th>
+    <th>Movie Name</th>
+    <th>Release Date</th>
+    <th>Popularity</th>
+    <th>Vote Average</th>
+    </tr>
+    <tr *ngFor="let movie of filteredList; let i = index">
+      <td>{{movie.id}}</td>
+      <td>{{movie.original_title}}</td>
+      <td>{{movie.release_date}}</td>
+      <td>{{movie.popularity}}</td>
+      <td>{{movie.vote_average}}</td>
+    </tr>
+  </table>
+<hr/>
+
+<ng-content></ng-content>

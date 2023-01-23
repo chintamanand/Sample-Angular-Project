@@ -1,0 +1,45 @@
+{
+  // These tasks will run in order when initializing your CodeSandbox project.
+  "setupTasks": [
+    {
+      "name": "Install Dependencies",
+      "command": "npm install"
+    }
+  ],
+
+  // These tasks can be run from CodeSandbox. Running one will open a log in the app.
+  "tasks": {
+    "start": {
+      "name": "start",
+      "command": "npm run start",
+      "runAtStart": true
+    },
+    "build": {
+      "name": "build",
+      "command": "ng build",
+      "runAtStart": false
+    },
+    "test": {
+      "name": "test",
+      "command": "ng test",
+      "runAtStart": false
+    },
+    "help": {
+      "name": "help",
+      "command": "ng help",
+      "runAtStart": false
+    },
+    "ng generate component childComponent": {
+      "name": "ng generate component childComponent",
+      "command": "ng generate component childComponent"
+    },
+    "ng g pipe FilterPipe": {
+      "name": "ng g pipe FilterPipe",
+      "command": "ng g pipe FilterPipe"
+    },
+    "ng generate component kanbanBoard": {
+      "name": "ng generate component kanbanBoard",
+      "command": "ng generate component kanbanBoard"
+    }
+  }
+}
